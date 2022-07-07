@@ -73,7 +73,7 @@
                         <button class="floating-button">Update</button>
                         </form:form>
                         <% } %>
-                        <a class="floating-button" href="/">Back</a></div>
+                        <a class="floating-button" href="/client">Back</a></div>
                 </div>
 </body>
 </html>

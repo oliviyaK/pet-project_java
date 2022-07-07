@@ -24,7 +24,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public List<RequestDTO> findAllRequests() {
-        List<Request> requests = (List<Request>) requestRepository.findAll();
+        List<Request> requests = requestRepository.findAll();
         return requestConverter.toListDTO(requests);
     }
 

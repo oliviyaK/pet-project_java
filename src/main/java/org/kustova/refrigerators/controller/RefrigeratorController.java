@@ -18,31 +18,34 @@ public class RefrigeratorController {
     private RefrigeratorRepository refrigeratorRepository;
 
     @GetMapping
-    public String findAllRefrigerators(Model model){
+    public String findAllRefrigerators(Model model) {
         List<RefrigeratorDTO> refrigerators = refrigeratorService.findAllRefrigerators();
-        model.addAttribute("refrigerators",refrigerators);
+        model.addAttribute("refrigerators", refrigerators);
         return "refrigerator";
     }
+
     @GetMapping("/delete")
     public String deleteRefrigerator(@RequestParam Integer id) {
         refrigeratorService.deleteRefrigerator(id);
         return "redirect:/refrigerator";
     }
+
     @GetMapping("/new")
-    public String newRefrigerator(Model model, RefrigeratorDTO refrigerator){
+    public String newRefrigerator(Model model, RefrigeratorDTO refrigerator) {
         model.addAttribute("refrigerator", refrigerator);
         return "refrigeratorForm";
     }
+
     @GetMapping("/edit")
     public String updateRefrigerator(@RequestParam Integer id, Model model) {
-    RefrigeratorDTO refrigerator = refrigeratorService.findRefrigeratorById(id);
+        RefrigeratorDTO refrigerator = refrigeratorService.findRefrigeratorById(id);
         model.addAttribute("refrigerator", refrigerator);
         return "refrigeratorForm";
     }
+
     @PostMapping(value = "/add")
-    public String addRefrigerator(@ModelAttribute("refrigerator") RefrigeratorDTO refrigerator){
+    public String addRefrigerator(@ModelAttribute("refrigerator") RefrigeratorDTO refrigerator) {
         refrigeratorService.saveRefrigerator(refrigerator);
         return "redirect:/refrigerator";
     }
-
 }

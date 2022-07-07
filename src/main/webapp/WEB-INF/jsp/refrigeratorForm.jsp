@@ -54,11 +54,11 @@
     </div>
     <div class="form-row">
     Enter comment: <label>
-            <form:input path="comment"/></label> <br/></div>
+            <form:input path="comment"/></label> <br/>
         <button class="floating-button">Update</button>
         </form:form>
         <% } %>
-        <a class="floating-button" href="/">Back</a></div>
+        <a class="floating-button" href="/refrigerator">Back</a></div>
     </div>
     </body>
     </html>
