@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>org.kustova.refrigerators</groupId>
-    <artifactId>refr-repair</artifactId>
+    <artifactId>pet_project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>refr-repair Maven Webapp</name>

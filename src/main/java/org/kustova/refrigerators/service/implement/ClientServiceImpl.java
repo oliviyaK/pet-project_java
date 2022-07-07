@@ -19,7 +19,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public List<ClientDTO> findAllClients() {
-        List<Client> clients = (List<Client>) clientRepository.findAll();
+        List<Client> clients = clientRepository.findAll();
         return clientConverter.toListDto(clients);
     }
 
