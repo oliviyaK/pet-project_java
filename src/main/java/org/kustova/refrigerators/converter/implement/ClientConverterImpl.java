@@ -26,16 +26,7 @@ public class ClientConverterImpl implements ClientConverter {
 
     @Override
     public List<ClientDTO> toListDto(List<Client> clients) {
-        return clients.stream().map(client -> ClientDTO.builder()
-                        .id(client.getId())
-                        .name(client.getName())
-                        .surname(client.getSurname())
-                        .phone(client.getPhone())
-                        .address(client.getAddress())
-                        .comment(client.getComment())
-//                        .requestOfClientDate(client.getRequestOfClient().stream().map(Request::getDate).collect(Collectors.joining(", ")))
-//                        .requestOfClientType(client.getRequestOfClient().stream().map(Request::getRequestType).collect(Collectors.joining(", ")))
-                        .build())
+        return clients.stream().map(this::toDTO)
                 .collect(Collectors.toList());
     }
 

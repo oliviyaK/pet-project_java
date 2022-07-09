@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RefrigeratorController {
     private final RefrigeratorService refrigeratorService;
-    private RefrigeratorRepository refrigeratorRepository;
+
 
     @GetMapping
     public String findAllRefrigerators(Model model) {

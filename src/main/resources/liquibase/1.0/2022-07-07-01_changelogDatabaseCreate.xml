@@ -35,7 +35,7 @@
                 final_comment   varchar(255) null,
                 price           varchar(255) null,
                 client_id       int null,
-                constraint FKljmj9fpy346ea5hejj9ej6x6o
+                constraint requests_clients_fk
                     foreign key (client_id) references clients (id)
             );
         </sql>

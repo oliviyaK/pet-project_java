@@ -15,7 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientController {
     private final ClientService clientService;
-    private ClientRepository clientRepository;
 
     @GetMapping
     public String findAllClients(Model model) {
@@ -36,7 +35,6 @@ public class ClientController {
         return "clientForm";
     }
 
-
     @GetMapping("/edit")
     public String updateClient(@RequestParam Integer id, Model model) {
         ClientDTO client = clientService.findClientById(id);
@@ -45,7 +43,7 @@ public class ClientController {
     }
 
     @PostMapping(value = "/add")
-    public String addClient(@ModelAttribute("client") ClientDTO client) {
+    public String addClient(@ModelAttribute("client") ClientDTO client, @RequestParam Integer id) {
         clientService.saveClient(client);
         return "redirect:/client";
     }

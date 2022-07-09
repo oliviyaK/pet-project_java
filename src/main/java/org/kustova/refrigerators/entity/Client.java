@@ -33,11 +33,11 @@ public class Client implements Serializable {
     @Column(name = "phone_number", nullable = false)
     private String phone;
 
-    @Column(name = "client_comment", nullable =true)
+    @Column(name = "client_comment", nullable = true)
     private String comment;
 
     @OneToMany(mappedBy = "client")
     @ToString.Exclude
     @Builder.Default
     private List<Request> requestOfClient = new ArrayList<>();
-    }
+}

@@ -1,15 +1,15 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
 <link href="../../resources/caption.css" rel="stylesheet">
 <link href="../../resources/table.css" rel="stylesheet">
 <link href="../../resources/create.css" rel="stylesheet">
 <link href="../../resources/button.css" rel="stylesheet">
 <link href="../../resources/menu.css" rel="stylesheet">
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page isELIgnored="false" %>
 <html>
 <head>
-    <title>Refrigerators</title>
+    <title>Parts</title>
 </head>
 <style>
     body {
@@ -54,47 +54,32 @@
     </nav>
 <div style="text-align: center;">
     <table>
-        <caption>Refrigerator list</caption>
+        <caption>Repair parts</caption>
         <tr>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Comment</th>
-            <th>Actions</th>
-            <th>Parts Info</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Refrigerators</th>
         </tr>
-        <c:forEach var="refrigerator" items="${refrigerators}">
-            <tr>
-                <td>${refrigerator.brand}</td>
-                <td>${refrigerator.model}</td>
-                <td>${refrigerator.comment}</td>
-                <td>
-                    <a class="smallButton" href="/refrigerator/edit?id=${refrigerator.id}">Update</a>
-                    <a class="smallButton" href="/refrigerator/delete?id=${refrigerator.id}">Delete</a>
-                </td><td>
-<%--                    <form action="addPart.jsp">--%>
-<%--                        <input name="id" type="hidden" value="${refrigerator.id}">--%>
-<%--                        <button class="smallButton">Add part</button>--%>
-<%--                    </form>--%>
-<%--                <form name="info" method="post" action="partInfo.jsp">--%>
-<%--                    <input name="id" type="hidden" value="${refrigerator.id}">--%>
-<%--                    <input name="brand" type="hidden" value="${refrigerator.brand}">--%>
-<%--                    <input name="model" type="hidden" value="${refrigerator.model}">--%>
-<%--                    <input name="detailName" type="hidden" value="${refrigerator.detailName}">--%>
-<%--                    <button class="smallButton">Parts</button>--%>
-<%--                </form>--%>
-
-            </td>
-            </tr>
-        </c:forEach>
+<c:forEach var="part" items="${details}">
+    <tr>
+    <td>${detail.name}</td>
+    <td>${detail.price}</td>
+    <td>
+        <a class="smallButton" href="/detail/edit?id=${detail.id}">Update</a>
+        <a class="smallButton" href="/detail/delete?id=${detail.id}">Delete</a>
+    </td>
+    </tr>
+</c:forEach>
     </table>
 </div>
 <div style="text-align: center;">
-    <form name="test" action="/refrigerator/new">
-        <button class="floating-button">New item</button>
+    <form name="test" action="/detail/new">
+        <button class="floating-button">New Detail</button>
     </form>
-    <form name="home" action="index.jsp">
+    <form name="home" action="index">
         <button class="floating-button">Main Page</button>
     </form>
+</div>
 </div>
 </body>
 </html>
