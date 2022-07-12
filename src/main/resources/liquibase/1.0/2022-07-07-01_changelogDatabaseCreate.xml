@@ -17,11 +17,7 @@
                 client_comment varchar(255) null
             );
         </sql>
-        <rollback>
-            drop table clients
-        </rollback>
     </changeSet>
-
 
     <changeSet id="2" author="Oliviya Kustova">
         <sql>
@@ -39,9 +35,6 @@
                     foreign key (client_id) references clients (id)
             );
         </sql>
-        <rollback>
-            drop table requests
-        </rollback>
     </changeSet>
 
     <changeSet id="3" author="Oliviya Kustova">
@@ -55,27 +48,24 @@
                 refrigerator_comment varchar(255) null
             );
         </sql>
-        <rollback>
-            drop table refrigerators
-        </rollback>
     </changeSet>
 
     <changeSet id="4" author="Oliviya Kustova">
         <sql>
-            create table parts
+            create table details
             (
                 id              int auto_increment
                     primary key,
                 part_name       varchar(255) not null,
                 part_price      varchar(255) null,
                 refrigerator_id int null,
-                constraint FKc3ascgx889udtwuqx9vnr9wuk
-                    foreign key (refrigerator_id) references refrigerators (id)
+                request_id int null,
+                constraint parts_refrigerators_fk
+                    foreign key (refrigerator_id) references refrigerators (id),
+                constraint parts_requests_fk
+                    foreign key (request_id) references requests (id)
             );
         </sql>
-        <rollback>
-            drop table parts
-        </rollback>
     </changeSet>
     <changeSet id="5" author="Oliviya Kustova">
         <sql>
@@ -89,8 +79,5 @@
                     foreign key (id_request) references requests (id)
             );
         </sql>
-        <rollback>
-            drop table request_refrigerator
-        </rollback>
     </changeSet>
 </databaseChangeLog>

@@ -69,7 +69,7 @@
                     <div class="form-row">
                         Enter comment: <label>
                         <form:input path="comment"/>
-                    </label> <br/>
+                    </label><br/>
                         <button class="floating-button">Update</button>
                         </form:form>
                         <% } %>

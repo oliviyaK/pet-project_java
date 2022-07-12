@@ -30,7 +30,7 @@
     </changeSet>
     <changeSet id="4" author="Oliviya Kustova" context="test">
         <sql>
-            insert into parts(part_name, part_price)
+            insert into details(part_name, part_price)
             values ('Defrost sensor KSD-2003 (12/-5°C; +72°)', '35'),
                    ('DOOR HANDLE FOR LG REFRIGERATORS GC-L257CBEC', '65'),
                    ('EGG STAND FOR REFRIGERATORS BOSCH KIR81AF20R', '25')

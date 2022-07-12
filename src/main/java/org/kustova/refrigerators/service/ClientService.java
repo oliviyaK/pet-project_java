@@ -7,11 +7,8 @@ import java.util.List;
 
 public interface ClientService {
     List<ClientDTO> findAllClients();
-
     Client saveClient(ClientDTO client);
-
     ClientDTO findClientById(Integer id);
-
     void deleteClient(Integer id);
 
 }

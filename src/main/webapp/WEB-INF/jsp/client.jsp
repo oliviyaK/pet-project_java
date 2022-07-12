@@ -2,67 +2,70 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<link href="../../resources/caption.css" rel="stylesheet">
 <link href="../../resources/table.css" rel="stylesheet">
 <link href="../../resources/create.css" rel="stylesheet">
 <link href="../../resources/button.css" rel="stylesheet">
+<link href="../../resources/smallButton.css" rel="stylesheet">
 <link href="../../resources/menu.css" rel="stylesheet">
+<link href="../../resources/styleGeneral.css" rel="stylesheet">
 <html>
 <head>
-    <title>Clients</title>
+    <title><fmt:message key="button.clients"/></title>
 </head>
-<style>
-    body {
-        margin: 0;
-        height: 100vh;
-        background: radial-gradient(#FAECD5 15%, transparent 15%), radial-gradient(#ABB93F 15%, transparent 15%);
-        background-color: #CAE4D8;
-        background-size: 30px 30px;
-        background-position: 0 0, 20px 20px;
-    }
-
-    p {
-        color: #FFF;
-        font: 15px Lobster;
-    }
-</style>
 <body>
 <div style="text-align: center;">
     <nav class="one">
+        <div style="text-align: right;">
+            <a class="small_floating-button" href="${pageContext.request.contextPath}/client?locale=en_US"><fmt:message
+                    key="lang.en"/></a>
+            <a class="small_floating-button" href="${pageContext.request.contextPath}/client?locale=ru_RU"><fmt:message
+                    key="lang.ru"/></a>
+        </div>
         <ul class="topmenu">
-            <li><a class="floating-button" href="client">Clients<i class="fa fa-angle-down"></i></a>
+            <li><a class="floating-button" href="${pageContext.request.contextPath}/index"><fmt:message
+                    key="button.main"/></a></li>
+            <li><a class="floating-button" href="client"><fmt:message key="button.clients"/><i
+                    class="fa fa-angle-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="/client/new">Create a client</a></li>
+                    <li><a href="${pageContext.request.contextPath}/client/new"><fmt:message
+                            key="button.create.client"/></a></li>
                 </ul>
             </li>
-            <li><a class="floating-button" href="request">Requests<i class="fa fa-angle-down"></i></a>
+            <li><a class="floating-button" href="request"><fmt:message key="button.requests"/><i
+                    class="fa fa-angle-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="requestForm.jsp">Create a request</a></li>
+                    <li><a href="${pageContext.request.contextPath}/request/new"><fmt:message
+                            key="button.create.request"/></a></li>
                 </ul>
             </li>
-            <li><a class="floating-button" href="refrigerator">Refrigerators<i class="fa fa-angle-down"></i></a>
+            <li><a class="floating-button" href="refrigerator"><fmt:message key="button.refrigerators"/><i
+                    class="fa fa-angle-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="refrigeratorForm.jsp">Create refrigerator</a></li>
+                    <li><a href="${pageContext.request.contextPath}/refrigerator/new"><fmt:message
+                            key="button.create.refrigerator"/></a></li>
                 </ul>
             </li>
-            <li><a class="floating-button" href="detail">Parts<i class="fa fa-angle-down"></i></a>
+            <li><a class="floating-button" href="detail"><fmt:message key="button.details"/><i
+                    class="fa fa-angle-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="detailForm.jsp">Create a part</a></li>
+                    <li><a href="${pageContext.request.contextPath}/detail/new"><fmt:message
+                            key="button.create.detail"/></a></li>
                 </ul>
             </li>
         </ul>
     </nav>
     <div style="text-align: center;">
         <table>
-            <caption>Your clients</caption>
+            <div class="d13">
+                <h1><fmt:message key="button.clients"/></h1></div>
             <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Comment</th>
-                <th>Action</th>
-                <th>Request info</th>
+                <th><fmt:message key="button.table.name"/></th>
+                <th><fmt:message key="button.table.surname"/></th>
+                <th><fmt:message key="button.table.address"/></th>
+                <th><fmt:message key="button.table.phone"/></th>
+                <th><fmt:message key="button.table.comment"/></th>
+                <th><fmt:message key="button.table.actions"/></th>
+                <th><fmt:message key="button.table.requestInfo"/></th>
             </tr>
             <c:forEach var="client" items="${clients}">
                 <tr>
@@ -72,10 +75,13 @@
                     <td>${client.phone}</td>
                     <td>${client.comment}</td>
                     <td>
-                        <a class="smallButton" href="/client/edit?id=${client.id}">Update</a>
-                        <a class="smallButton" href="/client/delete?id=${client.id}">Delete</a>
-<%--                        <a class="smallButton" href="/client/placeRequest?id=${client.id}">Add request</a>--%>
-                                                </td><td>
+                        <a class="smallButton" href="${pageContext.request.contextPath}/client/edit?id=${client.id}">Update</a>
+                        <a class="smallButton" href="${pageContext.request.contextPath}/client/delete?id=${client.id}">Delete</a>
+                        <a class="smallButton"
+                           href="${pageContext.request.contextPath}/client/addRequest?id=${client.id}">Add request</a>
+                            <%--                        <a class="smallButton" href="/client/placeRequest?id=${client.id}">Add request</a>--%>
+                    </td>
+                    <td>
                             <%--                        <form name="info" method="post" action="clientInfo.jsp">--%>
                             <%--                            <input name="id" type="hidden" value="${client.id}">--%>
                             <%--                            <input name="name" type="hidden" value="${client.name}">--%>
@@ -92,13 +98,6 @@
             </c:forEach>
         </table>
     </div>
-    <div style="text-align: center;">
-        <form name="test" action="/client/new">
-            <button class="floating-button">New Client</button>
-        </form>
-        <form name="home" action="index">
-            <button class="floating-button">Main Page</button>
-        </form>
-    </div>
+</div>
 </body>
 </html>

@@ -2,8 +2,9 @@ package org.kustova.refrigerators.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.kustova.refrigerators.DTO.ClientDTO;
-import org.kustova.refrigerators.repository.ClientRepository;
+import org.kustova.refrigerators.DTO.RequestDTO;
 import org.kustova.refrigerators.service.ClientService;
+import org.kustova.refrigerators.service.RequestService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientController {
     private final ClientService clientService;
+    private final RequestService requestService;
 
+    private final RequestController requestController;
     @GetMapping
     public String findAllClients(Model model) {
         List<ClientDTO> clients = clientService.findAllClients();
@@ -30,7 +33,7 @@ public class ClientController {
     }
 
     @GetMapping("/new")
-    public String newClient(Model model,ClientDTO client) {
+    public String newClient(Model model, ClientDTO client) {
         model.addAttribute("client", client);
         return "clientForm";
     }
@@ -43,8 +46,17 @@ public class ClientController {
     }
 
     @PostMapping(value = "/add")
-    public String addClient(@ModelAttribute("client") ClientDTO client, @RequestParam Integer id) {
+    public String addClient(@ModelAttribute("client") ClientDTO client) {
         clientService.saveClient(client);
+        return "redirect:/client";
+    }
+
+    @GetMapping("/addRequest")
+    public String addRequestToClient(@RequestParam Integer id, Model model, RequestDTO request) {
+        ClientDTO client = clientService.findClientById(id);
+        requestController.newRequest(model, request);
+        requestController.addRequest(request);
+
         return "redirect:/client";
     }
 

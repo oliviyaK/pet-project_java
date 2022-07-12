@@ -26,11 +26,7 @@ public class DetailConverterImpl implements DetailConverter {
 
     @Override
     public List<DetailDTO> toListDto(List<Detail> details) {
-        return details.stream().map(detail -> DetailDTO.builder()
-                .id(detail.getId())
-                .name(detail.getName())
-                .price(detail.getPrice())
-                .build())
+        return details.stream().map(this::toDTO)
                 .collect(Collectors.toList());
     }
 

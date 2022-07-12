@@ -21,11 +21,7 @@ public class RequestConverterImpl implements RequestConverter {
 
     @Override
     public List<RequestDTO> toListDTO(List<Request> requests) {
-        return requests.stream().map(request -> RequestDTO.builder()
-                        .id(request.getId())
-                        .date(request.getDate())
-                        .requestType(request.getRequestType())
-                        .build())
+        return requests.stream().map(this::toDTO)
                 .collect(Collectors.toList());
     }
 

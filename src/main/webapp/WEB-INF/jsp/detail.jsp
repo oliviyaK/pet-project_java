@@ -2,83 +2,67 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored="false" %>
-<link href="../../resources/caption.css" rel="stylesheet">
 <link href="../../resources/table.css" rel="stylesheet">
 <link href="../../resources/create.css" rel="stylesheet">
 <link href="../../resources/button.css" rel="stylesheet">
+<link href="../../resources/smallButton.css" rel="stylesheet">
 <link href="../../resources/menu.css" rel="stylesheet">
+<link href="../../resources/styleGeneral.css" rel="stylesheet">
 <html>
 <head>
-    <title>Parts</title>
+    <title><fmt:message key="button.details"/></title>
 </head>
-<style>
-    body {
-        margin: 0;
-        height: 100vh;
-        background: radial-gradient(#FAECD5 15%, transparent 15%), radial-gradient(#ABB93F 15%, transparent 15%);
-        background-color: #CAE4D8;
-        background-size: 30px 30px;
-        background-position: 0 0, 20px 20px;
-    }
-
-    p {
-        color: #FFF;
-        font: 15px Lobster;
-    }
-</style>
 <body>
 <div style="text-align: center;">
     <nav class="one">
+        <div style="text-align: right;">
+            <a class="small_floating-button" href="${pageContext.request.contextPath}/detail?locale=en_US"><fmt:message key="lang.en"/></a>
+            <a class="small_floating-button" href="${pageContext.request.contextPath}/detail?locale=ru_RU"><fmt:message key="lang.ru"/></a>
+        </div>
         <ul class="topmenu">
-            <li><a class="floating-button" href="client">Clients<i class="fa fa-angle-down"></i></a>
+            <li> <a class="floating-button" href="${pageContext.request.contextPath}/index"><fmt:message key="button.main"/></a></li>
+            <li><a class="floating-button" href="client"><fmt:message key="button.clients"/><i class="fa fa-angle-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="/client/new">Create a client</a></li>
+                    <li><a href="${pageContext.request.contextPath}/client/new"><fmt:message key="button.create.client"/></a></li>
                 </ul>
             </li>
-            <li><a class="floating-button" href="request">Requests<i class="fa fa-angle-down"></i></a>
+            <li><a class="floating-button" href="request"><fmt:message key="button.requests"/><i class="fa fa-angle-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="requestForm.jsp">Create a request</a></li>
+                    <li><a href="${pageContext.request.contextPath}/request/new"><fmt:message key="button.create.request"/></a></li>
                 </ul>
             </li>
-            <li><a class="floating-button" href="refrigerator">Refrigerators<i class="fa fa-angle-down"></i></a>
+            <li><a class="floating-button" href="refrigerator"><fmt:message key="button.refrigerators"/><i class="fa fa-angle-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="refrigeratorForm.jsp">Create refrigerator</a></li>
+                    <li><a href="${pageContext.request.contextPath}/refrigerator/new"><fmt:message key="button.create.refrigerator"/></a></li>
                 </ul>
             </li>
-            <li><a class="floating-button" href="detail">Parts<i class="fa fa-angle-down"></i></a>
+            <li><a class="floating-button" href="detail"><fmt:message key="button.details"/><i class="fa fa-angle-down"></i></a>
                 <ul class="submenu">
-                    <li><a href="detailForm.jsp">Create a part</a></li>
+                    <li><a href="${pageContext.request.contextPath}/detail/new"><fmt:message key="button.create.detail"/></a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 <div style="text-align: center;">
     <table>
-        <caption>Repair parts</caption>
+        <div class="d13">
+            <h1><fmt:message key="button.details.table"/></h1></div>
         <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Refrigerators</th>
+            <th><fmt:message key="button.table.name.item"/></th>
+            <th><fmt:message key="button.table.price"/></th>
+            <th><fmt:message key="button.table.actions"/></th>
         </tr>
-<c:forEach var="part" items="${details}">
+<c:forEach var="detail" items="${details}">
     <tr>
     <td>${detail.name}</td>
     <td>${detail.price}</td>
     <td>
-        <a class="smallButton" href="/detail/edit?id=${detail.id}">Update</a>
-        <a class="smallButton" href="/detail/delete?id=${detail.id}">Delete</a>
+        <a class="smallButton" href="${pageContext.request.contextPath}/detail/edit?id=${detail.id}"><fmt:message key="button.update"/></a>
+        <a class="smallButton" href="${pageContext.request.contextPath}/detail/delete?id=${detail.id}"><fmt:message key="button.delete"/></a>
     </td>
     </tr>
 </c:forEach>
     </table>
-</div>
-<div style="text-align: center;">
-    <form name="test" action="/detail/new">
-        <button class="floating-button">New Detail</button>
-    </form>
-    <form name="home" action="index">
-        <button class="floating-button">Main Page</button>
-    </form>
 </div>
 </div>
 </body>

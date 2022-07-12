@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.kustova.refrigerators.entity.Client;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +17,6 @@ public class RequestDTO {
     private String finalDate;
     private String comment;
     private int price;
-
+    private Client client;
 
 }

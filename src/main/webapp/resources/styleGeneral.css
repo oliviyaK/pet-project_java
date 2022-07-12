@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(#FAECD5 15%, transparent 15%), radial-gradient(#ABB93F 15%, transparent 15%);
+    background-color: #CAE4D8;
+    background-size: 30px 30px;
+    background-position: 0 0, 20px 20px;
+}
+
+p {
+    color: #FFF;
+    font: 15px Lobster;
+}

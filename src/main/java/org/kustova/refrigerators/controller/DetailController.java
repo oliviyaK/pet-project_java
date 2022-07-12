@@ -15,6 +15,7 @@ import java.util.List;
 public class DetailController {
     private final DetailService detailService;
 
+
     @GetMapping
     public String findAllDetails(Model model) {
         List<DetailDTO> details = detailService.findAllDetails();
@@ -25,7 +26,7 @@ public class DetailController {
     @GetMapping("/delete")
     public String deleteDetail(@RequestParam Integer id) {
         detailService.deleteDetail(id);
-        return "detail";
+        return "redirect:/detail";
     }
 
     @GetMapping("/new")
@@ -42,8 +43,8 @@ public class DetailController {
     }
 
     @PostMapping(value = "/add")
-    public String addDetail(@ModelAttribute("detail") DetailDTO detail, @RequestParam Integer id) {
+    public String addDetail(@ModelAttribute("detail") DetailDTO detail) {
         detailService.saveDetail(detail);
-        return "redirect:/client";
+        return "redirect:/detail";
     }
 }

@@ -20,12 +20,7 @@ public class RefrigeratorConverterImpl implements RefrigeratorConverter {
 
     @Override
     public List<RefrigeratorDTO> toListDTO(List<Refrigerator> refrigerators) {
-        return refrigerators.stream().map(refrigerator -> RefrigeratorDTO.builder()
-                        .id(refrigerator.getId())
-                        .brand(refrigerator.getBrand())
-                        .model(refrigerator.getModel())
-                        .comment(refrigerator.getComment())
-                        .build())
+        return refrigerators.stream().map(this::toDTO)
                 .collect(Collectors.toList());
     }
 

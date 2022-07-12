@@ -1,46 +1,44 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link href="../../resources/button.css" rel="stylesheet">
+<link href="../../resources/smallButton.css" rel="stylesheet">
 <link href="../../resources/menu.css" rel="stylesheet">
+<link href="../../resources/styleOperatorPage.css" rel="stylesheet">
 <html>
 <head>
-    <title>Operator's page</title>
+    <title><fmt:message key="button.main.operator"/></title>
 </head>
-<style>
-    title {
-        font-style: normal;
-    }
-    body {
-        background: url("<%=request.getContextPath()%>/resources/images/operator.jpg");
-        color: black;
-        background-size: cover;
-    }
-</style>
 <body>
 <div style="text-align: center;">
-<nav class="one">
-    <ul class="topmenu">
-        <li><a class="floating-button" href="client">Clients<i class="fa fa-angle-down"></i></a>
-            <ul class="submenu">
-                <li><a href="/client/new">Create a client</a></li>
-            </ul>
-        </li>
-        <li><a class="floating-button" href="request">Requests<i class="fa fa-angle-down"></i></a>
-            <ul class="submenu">
-                <li><a href="/request/new">Create a request</a></li>
-            </ul>
-        </li>
-        <li><a class="floating-button" href="refrigerator">Refrigerators<i class="fa fa-angle-down"></i></a>
-            <ul class="submenu">
-                <li><a href="/refrigerator/new">Create refrigerator</a></li>
-            </ul>
-        </li>
-        <li><a class="floating-button" href="detail">Parts<i class="fa fa-angle-down"></i></a>
-            <ul class="submenu">
-                <li><a href="/detail/new">Create a part</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+    <nav class="one">
+        <div style="text-align: right;">
+            <a class="small_floating-button" href="/operator?locale=en_US"><fmt:message key="lang.en"/></a>
+            <a class="small_floating-button" href="/operator?locale=ru_RU"><fmt:message key="lang.ru"/></a>
+        </div>
+        <ul class="topmenu">
+            <li> <a class="floating-button" href="/index"><fmt:message key="button.main"/></a></li>
+            <li><a class="floating-button" href="client"><fmt:message key="button.clients"/><i class="fa fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="/client/new"><fmt:message key="button.create.client"/></a></li>
+                </ul>
+            </li>
+            <li><a class="floating-button" href="request"><fmt:message key="button.requests"/><i class="fa fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="/request/new"><fmt:message key="button.create.request"/></a></li>
+                </ul>
+            </li>
+            <li><a class="floating-button" href="refrigerator"><fmt:message key="button.refrigerators"/><i class="fa fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="/refrigerator/new"><fmt:message key="button.create.refrigerator"/></a></li>
+                </ul>
+            </li>
+            <li><a class="floating-button" href="detail"><fmt:message key="button.details"/><i class="fa fa-angle-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="/detail/new"><fmt:message key="button.create.detail"/></a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 </div>
 </body>
 </html>

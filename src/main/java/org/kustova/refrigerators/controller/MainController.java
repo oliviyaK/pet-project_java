@@ -12,5 +12,8 @@ public class MainController {
     public String operator() {
         return "operator";
     }
-
+    @GetMapping("/index")
+    public String index() {
+        return "index";
+    }
 }
