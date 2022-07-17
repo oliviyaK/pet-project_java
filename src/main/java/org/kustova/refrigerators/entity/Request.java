@@ -4,15 +4,15 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.*;
 
-@EqualsAndHashCode
+
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "requests")
 public class Request implements Serializable {
@@ -21,7 +21,7 @@ public class Request implements Serializable {
     private Integer id;
 
     @Column(name = "date")
-    private String date;
+    private LocalDate date;
 
     @Column(name = "type_of_request")
     private String requestType;
@@ -37,10 +37,9 @@ public class Request implements Serializable {
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
-    @ToString.Exclude
     private Client client;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "requests_refrigerators",
             joinColumns = {@JoinColumn(name = "id_request")},
             inverseJoinColumns = {@JoinColumn(name = "id_refrigerator")})
@@ -48,9 +47,30 @@ public class Request implements Serializable {
     private Set<Refrigerator> refrigerator = new HashSet<>();
 
     @OneToMany(mappedBy = "request")
-    @ToString.Exclude
-    @Builder.Default
     private List<Detail> detailList = new ArrayList<>();
 
 
+    @Override
+    public String toString() {
+        return "Request{" +
+                "id = " + id +
+                ", date = " + date +
+                ", requestType = " + requestType +
+                ", finalDate = " + finalDate +
+                ", comment = " + comment +
+                ", price = " + price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Request request = (Request) o;
+        return id.equals(request.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

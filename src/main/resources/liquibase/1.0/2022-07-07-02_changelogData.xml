@@ -15,9 +15,9 @@
     <changeSet id="2" author="Oliviya Kustova" context="test">
         <sql>
             insert into requests(date, type_of_request, final_date, final_comment, price)
-            values ('25-02-2021', 'Refrigerator compressor replacement', '27-02-2021','next time: Thermostat replacement', '62'),
-                   ('24-01-2021', 'Filling the refrigerator with freon', '28-01-2021','Filling the refrigerator with freon + refrigerator compressor replacement', '23'),
-                   ('24-01-2021', 'Thermostat replacement', '27-01-2021','Thermostat replacement', '50')
+            values ('25.02.2021', 'Refrigerator compressor replacement', '27.02.2021','next time: Thermostat replacement', '62'),
+                   ('24.01.2021', 'Filling the refrigerator with freon', '28.01.2021','Filling the refrigerator with freon + refrigerator compressor replacement', '23'),
+                   ('24.01.2021', 'Thermostat replacement', '27.01.2021','Thermostat replacement', '50')
         </sql>
     </changeSet>
     <changeSet id="3" author="Oliviya Kustova" context="test">

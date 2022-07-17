@@ -63,7 +63,6 @@
                 <th><fmt:message key="button.table.finalComment"/></th>
                 <th><fmt:message key="button.table.price"/></th>
                 <th><fmt:message key="button.table.actions"/></th>
-                <th><fmt:message key="button.table.requestInfo"/></th>
             </tr>
             <c:forEach var="request" items="${requests}">
                 <tr>
@@ -73,41 +72,14 @@
                     <td>${request.comment}</td>
                     <td>${request.price}</td>
                     <td>
-                        <a class="smallButton" href="${pageContext.request.contextPath}/request/edit?id=${request.id}">Update</a>
                         <a class="smallButton"
-                           href="${pageContext.request.contextPath}/request/delete?id=${request.id}">Delete</a>
+                           href="${pageContext.request.contextPath}/request/edit?id=${request.id}"><fmt:message
+                                key="button.update"/></a>
+                        <a class="smallButton"
+                           href="${pageContext.request.contextPath}/request/delete?id=${request.id}"><fmt:message
+                                key="button.delete"/></a>
                     </td>
                 </tr>
-                <%--                    <form action="addRefrigerator.jsp">--%>
-                <%--                        <input name="id" type="hidden" value="${request.id}">--%>
-                <%--                        <button class="smallButton">Add refrigerator</button>--%>
-                <%--                    </form>--%>
-                <%--                </td>--%>
-                <%--                    <form name="info" method="post" action="requestInfo.jsp">--%>
-                <%--                        <input name="id" type="hidden" value="${request.id}">--%>
-                <%--                        <input name="date" type="hidden" value="${request.date}">--%>
-                <%--                        <input name="requestType" type="hidden" value="${request.requestType}">--%>
-                <%--                        <input name="finalDate" type="hidden" value="${request.finalDate}">--%>
-                <%--                        <input name="comment" type="hidden" value="${request.comment}">--%>
-                <%--                        <input name="price" type="hidden" value="${request.price}">--%>
-                <%--                        <input name="clientName" type="hidden" value="${request.client.name}">--%>
-                <%--                        <input name="clientSurname" type="hidden" value="${request.client.surname}">--%>
-                <%--                        <input name="clientAddress" type="hidden" value="${request.client.address}">--%>
-                <%--                        <input name="clientPhone" type="hidden" value="${request.client.phone}">--%>
-                <%--                        <input name="clientComment" type="hidden" value="${request.client.comment}">--%>
-                <%--                        <button class="smallButton">Client details</button>--%>
-                <%--                    </form>--%>
-                <%--                    <form name="info" method="post" action="refrigeratorInfo.jsp">--%>
-                <%--                        <input name="id" type="hidden" value="${request.id}">--%>
-                <%--                        <input name="date" type="hidden" value="${request.date}">--%>
-                <%--                        <input name="requestType" type="hidden" value="${request.requestType}">--%>
-                <%--                        <input name="finalDate" type="hidden" value="${request.finalDate}">--%>
-                <%--                        <input name="comment" type="hidden" value="${request.comment}">--%>
-                <%--                        <input name="price" type="hidden" value="${request.price}">--%>
-                <%--                        <input name="refrigeratorBrand" type="hidden" value="${request.refrigeratorBrand}">--%>
-                <%--                        <input name="refrigeratorModel" type="hidden" value="${request.refrigeratorModel}">--%>
-                <%--                        <button class="smallButton">Refrigerator details</button>--%>
-                <%--                    </form>--%>
             </c:forEach>
         </table>
     </div>

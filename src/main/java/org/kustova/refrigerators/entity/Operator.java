@@ -19,9 +19,12 @@ import java.io.Serializable;
 @Table(name = "operator")
 public class Operator implements Serializable {
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "operator_name", nullable = false)
-    private String name;
+    @Column(name = "operator_name")
+    private String username;
+    @Column(name = "password")
+    private String password;
+
 }

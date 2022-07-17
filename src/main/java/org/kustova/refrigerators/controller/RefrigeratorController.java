@@ -2,7 +2,6 @@ package org.kustova.refrigerators.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.kustova.refrigerators.DTO.RefrigeratorDTO;
-import org.kustova.refrigerators.repository.RefrigeratorRepository;
 import org.kustova.refrigerators.service.RefrigeratorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +14,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RefrigeratorController {
     private final RefrigeratorService refrigeratorService;
-
 
     @GetMapping
     public String findAllRefrigerators(Model model) {

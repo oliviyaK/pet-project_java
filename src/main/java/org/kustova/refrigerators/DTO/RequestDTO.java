@@ -1,15 +1,17 @@
 package org.kustova.refrigerators.DTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.kustova.refrigerators.entity.Client;
+import org.kustova.refrigerators.entity.Refrigerator;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
 public class RequestDTO {
     private int id;
     private String date;
@@ -18,5 +20,6 @@ public class RequestDTO {
     private String comment;
     private int price;
     private Client client;
+    private Set<Refrigerator> refrigerator = new HashSet<>();
 
 }

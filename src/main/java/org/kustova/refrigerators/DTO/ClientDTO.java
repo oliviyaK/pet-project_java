@@ -1,6 +1,9 @@
 package org.kustova.refrigerators.DTO;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
@@ -14,6 +17,5 @@ public class ClientDTO {
     private String address;
     private String phone;
     private String comment;
-    private String requestOfClientDate;
-    private String requestOfClientType;
+    private String requestOfClient;
 }

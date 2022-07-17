@@ -19,8 +19,7 @@ public class ClientConverterImpl implements ClientConverter {
                 .phone(client.getPhone())
                 .address(client.getAddress())
                 .comment(client.getComment())
-//                .requestOfClientDate(client.getRequestOfClient().stream().map(Request::getDate).collect(Collectors.joining(", ")))
-//                .requestOfClientType(client.getRequestOfClient().stream().map(Request::getRequestType).collect(Collectors.joining(", ")))
+                .requestOfClient(client.getRequestOfClient().stream().map(Request::getRequestType).collect(Collectors.joining(" ,")))
                 .build();
     }
 

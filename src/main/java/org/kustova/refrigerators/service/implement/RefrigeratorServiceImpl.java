@@ -37,4 +37,9 @@ public class RefrigeratorServiceImpl implements RefrigeratorService {
     public void deleteRefrigerator(Integer id) {
         refrigeratorRepository.deleteById(id);
     }
+
+    @Override
+    public List<Refrigerator> findAllRef() {
+        return refrigeratorRepository.findAll();
+    }
 }

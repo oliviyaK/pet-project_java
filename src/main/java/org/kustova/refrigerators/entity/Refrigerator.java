@@ -4,16 +4,14 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-@EqualsAndHashCode
+
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "refrigerators")
 public class Refrigerator implements Serializable {
@@ -34,9 +32,31 @@ public class Refrigerator implements Serializable {
     @ToString.Exclude
     @Builder.Default
     private List<Detail> detailList = new ArrayList<>();
-//
-    @ManyToMany (mappedBy = "refrigerator", fetch = FetchType.EAGER)
+
+    @ManyToMany(mappedBy = "refrigerator")
     @ToString.Exclude
     @Builder.Default
-    private List<Request> request = new ArrayList<>();
+    private Set<Request> request = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return "Refrigerator " +
+                "id = " + id +
+                ", brand = " + brand +
+                ", model = " + model +
+                ", comment = " + comment;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Refrigerator refrigerator = (Refrigerator) o;
+        return id.equals(refrigerator.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

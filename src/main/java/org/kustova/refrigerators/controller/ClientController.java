@@ -3,6 +3,7 @@ package org.kustova.refrigerators.controller;
 import lombok.RequiredArgsConstructor;
 import org.kustova.refrigerators.DTO.ClientDTO;
 import org.kustova.refrigerators.DTO.RequestDTO;
+import org.kustova.refrigerators.entity.Request;
 import org.kustova.refrigerators.service.ClientService;
 import org.kustova.refrigerators.service.RequestService;
 import org.springframework.stereotype.Controller;
@@ -16,9 +17,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientController {
     private final ClientService clientService;
-    private final RequestService requestService;
 
-    private final RequestController requestController;
+
     @GetMapping
     public String findAllClients(Model model) {
         List<ClientDTO> clients = clientService.findAllClients();
@@ -50,14 +50,12 @@ public class ClientController {
         clientService.saveClient(client);
         return "redirect:/client";
     }
-
-    @GetMapping("/addRequest")
-    public String addRequestToClient(@RequestParam Integer id, Model model, RequestDTO request) {
+    @GetMapping("/requestInfo")
+    public String requestInfo (@RequestParam Integer id, Model model){
+        List<Request> requestOfClient = clientService.findRequest(id);
         ClientDTO client = clientService.findClientById(id);
-        requestController.newRequest(model, request);
-        requestController.addRequest(request);
-
-        return "redirect:/client";
+        model.addAttribute("requests", requestOfClient);
+        model.addAttribute("client", client);
+        return "requestInfo";
     }
-
 }

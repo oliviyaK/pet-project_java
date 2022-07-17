@@ -4,8 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 @EqualsAndHashCode
 @Getter
@@ -13,7 +14,6 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "clients")
 public class Client implements Serializable {
@@ -37,7 +37,29 @@ public class Client implements Serializable {
     private String comment;
 
     @OneToMany(mappedBy = "client")
-    @ToString.Exclude
-    @Builder.Default
-    private List<Request> requestOfClient = new ArrayList<>();
+    private Set<Request> requestOfClient = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return "Client " +
+                "id = " + id +
+                ", name = " + name +
+                ", surname = " + surname +
+                ", address = " + address +
+                ", phone = " + phone +
+                ", comment = " + comment ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return id.equals(client.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

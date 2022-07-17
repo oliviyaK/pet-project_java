@@ -56,45 +56,23 @@
     </nav>
     <div style="text-align: center;">
         <table>
-            <div class="d13">
-                <h1><fmt:message key="button.clients"/></h1></div>
-            <tr>
-                <th><fmt:message key="button.table.name"/></th>
+            <div class="d13"><h1><fmt:message key="button.clients"/></h1></div>
+            <tr><th><fmt:message key="button.table.name"/></th>
                 <th><fmt:message key="button.table.surname"/></th>
                 <th><fmt:message key="button.table.address"/></th>
                 <th><fmt:message key="button.table.phone"/></th>
                 <th><fmt:message key="button.table.comment"/></th>
-                <th><fmt:message key="button.table.actions"/></th>
-                <th><fmt:message key="button.table.requestInfo"/></th>
-            </tr>
+                <th><fmt:message key="button.table.actions"/></th><th></th></tr>
             <c:forEach var="client" items="${clients}">
-                <tr>
-                    <td>${client.name}</td>
+                <tr><td>${client.name}</td>
                     <td>${client.surname}</td>
                     <td>${client.address}</td>
                     <td>${client.phone}</td>
-                    <td>${client.comment}</td>
-                    <td>
-                        <a class="smallButton" href="${pageContext.request.contextPath}/client/edit?id=${client.id}">Update</a>
-                        <a class="smallButton" href="${pageContext.request.contextPath}/client/delete?id=${client.id}">Delete</a>
-                        <a class="smallButton"
-                           href="${pageContext.request.contextPath}/client/addRequest?id=${client.id}">Add request</a>
-                            <%--                        <a class="smallButton" href="/client/placeRequest?id=${client.id}">Add request</a>--%>
-                    </td>
-                    <td>
-                            <%--                        <form name="info" method="post" action="clientInfo.jsp">--%>
-                            <%--                            <input name="id" type="hidden" value="${client.id}">--%>
-                            <%--                            <input name="name" type="hidden" value="${client.name}">--%>
-                            <%--                            <input name="surname" type="hidden" value="${client.surname}">--%>
-                            <%--                            <input name="address" type="hidden" value="${client.address}">--%>
-                            <%--                            <input name="phone" type="hidden" value="${client.phone}">--%>
-                            <%--                            <input name="comment" type="hidden" value="${client.comment}">--%>
-                            <%--                            <input name="requestOfClientDate" type="hidden" value="${client.requestOfClientDate}">--%>
-                            <%--                            <input name="requestOfClientType" type="hidden" value="${client.requestOfClientType}">--%>
-                            <%--                            <button class="smallButton">Request details</button>--%>
-                            <%--                        </form>--%>
-                    </td>
-                </tr>
+                    <td>${client.comment}</td><td>
+                        <a class="smallButton" href="${pageContext.request.contextPath}/client/edit?id=${client.id}"><fmt:message key="button.update"/></a>
+                        <a class="smallButton" href="${pageContext.request.contextPath}/client/delete?id=${client.id}"><fmt:message key="button.delete"/></a>
+                        <a class="smallButton" href="${pageContext.request.contextPath}/request/add?idC=${client.id}"><fmt:message key="button.create.request"/></a>
+                    </td><td><a class="smallButton" href="${pageContext.request.contextPath}/client/requestInfo?id=${client.id}"><fmt:message key="button.table.requestInfo"/></a></td></tr>
             </c:forEach>
         </table>
     </div>

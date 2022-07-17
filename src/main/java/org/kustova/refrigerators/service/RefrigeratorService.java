@@ -10,5 +10,6 @@ public interface RefrigeratorService {
     Refrigerator saveRefrigerator (RefrigeratorDTO refrigerator);
     RefrigeratorDTO findRefrigeratorById (Integer id);
     void deleteRefrigerator (Integer id);
+    List<Refrigerator> findAllRef();
 
 }

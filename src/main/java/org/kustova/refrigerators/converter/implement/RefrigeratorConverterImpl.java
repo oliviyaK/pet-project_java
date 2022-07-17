@@ -5,6 +5,7 @@ import org.kustova.refrigerators.converter.RefrigeratorConverter;
 import org.kustova.refrigerators.entity.Refrigerator;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class RefrigeratorConverterImpl implements RefrigeratorConverter {

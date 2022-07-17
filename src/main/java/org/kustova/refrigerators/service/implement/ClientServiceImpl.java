@@ -5,7 +5,9 @@ import org.kustova.refrigerators.DTO.ClientDTO;
 import org.kustova.refrigerators.converter.ClientConverter;
 import org.kustova.refrigerators.converter.implement.ClientConverterImpl;
 import org.kustova.refrigerators.entity.Client;
+import org.kustova.refrigerators.entity.Request;
 import org.kustova.refrigerators.repository.ClientRepository;
+import org.kustova.refrigerators.repository.RequestRepository;
 import org.kustova.refrigerators.service.ClientService;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ import java.util.List;
 public class ClientServiceImpl implements ClientService {
     private final ClientConverter clientConverter = new ClientConverterImpl();
     private final ClientRepository clientRepository;
+    private final RequestRepository requestRepository;
 
     @Override
     public List<ClientDTO> findAllClients() {
@@ -36,5 +39,10 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public void deleteClient(Integer id) {
         clientRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Request> findRequest(Integer id) {
+        return requestRepository.findRequestFromClient(id);
     }
 }

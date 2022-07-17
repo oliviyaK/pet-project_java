@@ -1,7 +1,10 @@
 package org.kustova.refrigerators.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.kustova.refrigerators.DTO.ClientDTO;
 import org.kustova.refrigerators.DTO.RequestDTO;
+import org.kustova.refrigerators.service.ClientService;
+import org.kustova.refrigerators.service.RefrigeratorService;
 import org.kustova.refrigerators.service.RequestService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RequestController {
     private final RequestService requestService;
+    private final ClientService clientService;
+
+    private final RefrigeratorService refrigeratorService;
 
     @GetMapping
     public String findAllRequests(Model model) {
@@ -30,7 +36,17 @@ public class RequestController {
 
     @GetMapping("/new")
     public String newRequest(Model model, RequestDTO request) {
+        model.addAttribute("refrigerator", refrigeratorService.findAllRef());
         model.addAttribute("request", request);
+        return "requestForm";
+    }
+
+    @GetMapping("/add")
+    public String addClient(@RequestParam Integer idC, Model model, RequestDTO request) {
+        ClientDTO client = clientService.findClientById(idC);
+        model.addAttribute("client", client);
+        model.addAttribute("request", request);
+        model.addAttribute("refrigerator", refrigeratorService.findAllRef());
         return "requestForm";
     }
 
@@ -38,6 +54,7 @@ public class RequestController {
     public String updateRequest(@RequestParam Integer id, Model model) {
         RequestDTO request = requestService.findRequestById(id);
         model.addAttribute("request", request);
+        model.addAttribute("refrigerator", refrigeratorService.findAllRef());
         return "requestForm";
     }
 

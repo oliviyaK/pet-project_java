@@ -25,9 +25,9 @@
             (
                 id              int auto_increment
                     primary key,
-                date            varchar(255) not null,
+                date            date         not null,
                 type_of_request varchar(255) not null,
-                final_date      varchar(255) null,
+                final_date      date null,
                 final_comment   varchar(255) null,
                 price           varchar(255) null,
                 client_id       int null,
@@ -59,7 +59,7 @@
                 part_name       varchar(255) not null,
                 part_price      varchar(255) null,
                 refrigerator_id int null,
-                request_id int null,
+                request_id      int null,
                 constraint parts_refrigerators_fk
                     foreign key (refrigerator_id) references refrigerators (id),
                 constraint parts_requests_fk

@@ -12,11 +12,11 @@
 <div style="text-align: center;">
     <nav class="one">
         <div style="text-align: right;">
-            <a class="small_floating-button" href="/operator?locale=en_US"><fmt:message key="lang.en"/></a>
-            <a class="small_floating-button" href="/operator?locale=ru_RU"><fmt:message key="lang.ru"/></a>
+            <a class="small_floating-button" href="${pageContext.request.contextPath}/operator?locale=en_US"><fmt:message key="lang.en"/></a>
+            <a class="small_floating-button" href="${pageContext.request.contextPath}/operator?locale=ru_RU"><fmt:message key="lang.ru"/></a>
         </div>
         <ul class="topmenu">
-            <li> <a class="floating-button" href="/index"><fmt:message key="button.main"/></a></li>
+            <li> <a class="floating-button" href="${pageContext.request.contextPath}/index"><fmt:message key="button.main"/></a></li>
             <li><a class="floating-button" href="client"><fmt:message key="button.clients"/><i class="fa fa-angle-down"></i></a>
                 <ul class="submenu">
                     <li><a href="/client/new"><fmt:message key="button.create.client"/></a></li>

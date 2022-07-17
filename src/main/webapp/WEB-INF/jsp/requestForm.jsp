@@ -1,96 +1,121 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
 <link href="../../resources/button.css" rel="stylesheet">
 <link href="../../resources/clientCard.css" rel="stylesheet">
 <link href="../../resources/create.css" rel="stylesheet">
 <html>
-<head>
-    <title>Create a request</title>
-    <style>
-        body {
-            background: papayawhip;
-            color: slategrey;
-            background-size: cover;
-        }
-    </style>
-</head>
+<head><title><fmt:message key="button.create.request"/></title></head>
 <body>
-<div id="left">
-        <% if (request.getParameter("id") == null) { %>
-    <div class="d11"><h2>Create a request</h2></div>
+<c:choose>
+<c:when test="${not empty param.idC}">
+<div class="d13"><h1><fmt:message key="button.create.request"/> ${client.name} ${client.surname}</h1></div>
+<form:form action="add" method="post" modelAttribute="request" autocomplete="off">
+<form class="form-inner">
+    <div class="stripes-block"></div>
+    <div class="form-row">
+        <fmt:message key="button.enter.date"/><label>
+        <form:input type="date" path="date"/></label><br/></div>
+    <div class="form-row"><fmt:message key="button.enter.typeOfRequest"/><label>
+        <form:input path="requestType"/></label><br/></div>
+    <div class="form-row">
+        <fmt:message key="button.enter.finalDate"/><label>
+        <form:input type="date" path="finalDate"/></label><br/></div>
+    <div class="form-row">
+        <fmt:message key="button.enter.finalComment"/><label>
+        <form:input path="comment"/></label><br/></div>
+
+    <div class="form-row"><label>
+        <fmt:message key="button.add.refrigerator"/>
+        <form:select multiple="ref" path="refrigerator">
+            <option selected><fmt:message key="button.choose.refrigerator"/></option>
+            <c:forEach var="ref" items="${refrigerator}">
+                <form:option label="${ref.brand} + ${ref.model}" value="${ref.id}">
+                </form:option>
+            </c:forEach>
+        </form:select>
+
+    </label><br/></div>
+
+    <div class="form-row">
+        <fmt:message key="button.enter.price"/><label>
+        <form:input path="price"/></label><br/>
+        <form:input path="client" type="hidden" value="${client.id}"/>
+        <button class="floating-button"><fmt:message key="button.create"/></button>
+        <a class="floating-button" href="/client"><fmt:message key="button.back"/></a></div>
+    </form:form>
+    </c:when>
+    <c:when test="${not empty param.id}">
+    <div class="d13"><h1><fmt:message key="button.update.request"/></h1></div>
     <form:form action="add" method="post" modelAttribute="request" autocomplete="off">
+        <form:hidden path="id"/>
     <form class="form-inner">
         <div class="stripes-block"></div>
         <div class="form-row">
-            Enter date: <label>
-            <form:input path="date"/>
-        </label> <br/></div>
+            <fmt:message key="button.enter.date"/><label>
+            <form:input type="date" path="date"/> </label><br/></div>
         <div class="form-row">
-            Enter type of request: <label>
-            <form:input path="requestType"/>
-        </label><br/></div>
+            <fmt:message key="button.enter.typeOfRequest"/><label>
+            <form:input path="requestType"/> </label><br/></div>
         <div class="form-row">
-            Enter final date: <label>
-            <form:input path="finalDate"/>
-        </label><br/></div>
+            <fmt:message key="button.enter.finalDate"/><label>
+            <form:input type="date" path="finalDate"/></label><br/></div>
         <div class="form-row">
-            Enter comment: <label>
-            <form:input path="comment"/>
-        </label><br/></div>
-        <div class="form-row">
-            Enter price: <label>
-            <form:input path="price"/>
-        </label><br/>
-            <button class="floating-button">Create</button>
-            </form:form>
-            <div style="text-align: center;">
-                    <% } else if (request.getParameter("id")!=null) {%>
-                <form:form action="add" method="post" modelAttribute="request" autocomplete="off">
-                <h2>Update a request: ${request.id}</h2>
-                    <form:hidden path="id"/>
-                <form class="form-inner">
-                    <div class="stripes-block"></div>
-                    <div class="form-row">
-                        Enter date: <label>
-                        <form:input path="date"/> </label><br/></div>
-                    <div class="form-row">
-                        Enter type of request: <label>
-                        <form:input path="requestType"/> </label><br/></div>
-                    <div class="form-row">
-                        Enter final date: <label>
-                        <form:input path="finalDate"/>
-                    </label><br/></div>
-                    <div class="form-row">
-                        Enter comment: <label>
-                        <form:input path="comment"/>
-                    </label><br/></div>
-                    <div class="form-row">
-                        Enter price: <label>
-                        <form:input path="price"/></label><br/>
-                        <button class="floating-button">Update</button>
-                        </form:form>
+            <fmt:message key="button.enter.finalComment"/><label><form:input path="comment"/></label><br/></div>
+        <div class="form-row"><label>
+            <fmt:message key="button.add.refrigerator"/>
+            <form:select multiple="ref" path="refrigerator">
+                <option selected><fmt:message key="button.choose.refrigerator"/></option>
+                <c:forEach var="ref" items="${refrigerator}">
+                    <form:option label="${ref.brand} + ${ref.model}" value="${ref.id}">
+                    </form:option>
+                </c:forEach>
+            </form:select>
 
-                        <%--                            <% } else if (request.getParameter("id") != null) { %>--%>
-                        <%--                        <div class="d11"><h2>Create a client's request</h2></div>--%>
-                        <%--                        <form name="addRequestToClient" method="post" action="request" autocomplete="off">--%>
-                        <%--                            <input name="id" type="hidden" value="<%=request.getParameter("id")%>">--%>
-                        <%--                            <div class="form-inner">--%>
-                        <%--                                <div class="stripes-block"></div>--%>
-                        <%--                                <div class="form-row">--%>
-                        <%--                                    Enter date: <label>--%>
-                        <%--                                    <input name="date" type="date" required placeholder="Дата">--%>
-                        <%--                                </label> <br/></div>--%>
-                        <%--                                <div class="form-row">--%>
-                        <%--                                    Enter type of request: <label>--%>
-                        <%--                                    <input name="requestType" type="text" required placeholder="Заявка">--%>
-                        <%--                                </label><br/></div>--%>
-                        <%--                            </div>--%>
-                        <%--                            <input name="action" type="hidden" value="addRequestToClient">--%>
-                        <%--                            <button class="floating-button">Create</button>--%>
-                            <%}%>
-                        <div style="text-align: center;">
-                        </div>
-                        <div style="text-align: center;">
-                            <a class="floating-button" href="/request">Back</a></div>
+        </label><br/></div>
+        <div class="form-row"><fmt:message key="button.enter.price"/><label><form:input path="price"/></label><br/>
+            <button class="floating-button"><fmt:message key="button.update"/></button>
+            <a class="floating-button" href="/request"><fmt:message key="button.back"/></a></div>
+        </form:form>
+        </c:when>
+        <c:when test="${empty param.id}">
+        <div class="d13"><h1><fmt:message key="button.create.request"/></h1></div>
+        <form:form action="add" method="post" modelAttribute="request" autocomplete="off">
+        <form class="form-inner">
+            <div class="stripes-block"></div>
+            <div class="form-row">
+                <fmt:message key="button.enter.date"/><label><form:input type="date" path="date"/></label> <br/>
+            </div>
+            <div class="form-row">
+                <fmt:message key="button.enter.typeOfRequest"/><label><form:input
+                    path="requestType"/></label><br/></div>
+            <div class="form-row">
+                <fmt:message key="button.enter.finalDate"/><label><form:input type="date"
+                                                                              path="finalDate"/></label><br/>
+            </div>
+            <div class="form-row"><fmt:message key="button.enter.finalComment"/><label><form:input
+                    path="comment"/></label><br/></div>
+
+            <div class="form-row"><label>
+                <fmt:message key="button.add.refrigerator"/>
+                <form:select multiple="ref" path="refrigerator">
+                    <option selected><fmt:message key="button.choose.refrigerator"/></option>
+                    <c:forEach var="ref" items="${refrigerator}">
+                        <form:option label="${ref.brand} + ${ref.model}" value="${ref.id}">
+                        </form:option>
+                    </c:forEach>
+                </form:select>
+
+            </label><br/></div>
+
+            <div class="form-row"><fmt:message key="button.enter.price"/><label><form:input
+                    path="price"/></label><br/>
+                <button class="floating-button"><fmt:message key="button.create"/></button>
+                <a class="floating-button" href="/request"><fmt:message key="button.back"/></a></div>
+            </form:form>
+            </c:when>
+            </c:choose>
 </body>
 </html>

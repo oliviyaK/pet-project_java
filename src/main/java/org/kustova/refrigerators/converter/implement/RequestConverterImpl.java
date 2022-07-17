@@ -2,8 +2,11 @@ package org.kustova.refrigerators.converter.implement;
 
 import org.kustova.refrigerators.DTO.RequestDTO;
 import org.kustova.refrigerators.converter.RequestConverter;
+import org.kustova.refrigerators.entity.Refrigerator;
 import org.kustova.refrigerators.entity.Request;
 
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,8 +17,12 @@ public class RequestConverterImpl implements RequestConverter {
     public RequestDTO toDTO(Request request) {
         return RequestDTO.builder()
                 .id(request.getId())
-                .date(request.getDate())
+                .date(String.valueOf(request.getDate()))
+                .finalDate(request.getFinalDate())
                 .requestType(request.getRequestType())
+                .comment(request.getComment())
+                .price(request.getPrice())
+                .refrigerator(request.getRefrigerator())
                 .build();
     }
 
@@ -29,8 +36,13 @@ public class RequestConverterImpl implements RequestConverter {
     public Request toEntity(RequestDTO requestDTO) {
         return Request.builder()
                 .id(requestDTO.getId())
-                .date(requestDTO.getDate())
+                .date(LocalDate.parse(requestDTO.getDate()))
+                .finalDate(requestDTO.getFinalDate())
                 .requestType(requestDTO.getRequestType())
+                .comment(requestDTO.getComment())
+                .price(requestDTO.getPrice())
+                .client(requestDTO.getClient())
+                .refrigerator(requestDTO.getRefrigerator())
                 .build();
     }
 }
