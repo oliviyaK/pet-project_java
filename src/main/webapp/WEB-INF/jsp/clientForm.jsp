@@ -16,15 +16,15 @@
 <form:hidden path="id"/>
 <div class="form-inner">
     <div class="stripes-block"></div>
-    <div class="form-row"><fmt:message key="button.enter.name"/><label><form:input path="name"/> </label> <br/>
+    <div class="form-row-refr"><fmt:message key="button.enter.name"/><label><form:input path="name"/> </label> <br/>
     </div>
-    <div class="form-row">
+    <div class="form-row-refr">
         <fmt:message key="button.enter.surname"/><label><form:input path="surname"/></label><br/></div>
-    <div class="form-row">
+    <div class="form-row-refr">
         <fmt:message key="button.enter.address"/><label><form:input path="address"/></label> <br/></div>
-    <div class="form-row"><fmt:message key="button.enter.phone"/><label><form:input path="phone"/>
+    <div class="form-row-refr"><fmt:message key="button.enter.phone"/><label><form:input path="phone"/>
     </label> <br/></div>
-    <div class="form-row"><fmt:message key="button.enter.comment"/><label><form:input path="comment"/></label><br/>
+    <div class="form-row-refr"><fmt:message key="button.enter.comment"/><label><form:input path="comment"/></label><br/>
         <button class="floating-button"><fmt:message key="button.update"/></button>
         <a class="floating-button" href="/client"><fmt:message key="button.back"/></a></div>
     </form:form>
@@ -34,17 +34,17 @@
     <form:form action="add" method="post" modelAttribute="client" autocomplete="off">
     <div class="form-inner">
         <div class="stripes-block"></div>
-        <div class="form-row">
+        <div class="form-row-refr">
             <fmt:message key="button.enter.name"/><label><form:input path="name"/></label><br/></div>
-        <div class="form-row"><fmt:message key="button.enter.surname"/><label><form:input
+        <div class="form-row-refr"><fmt:message key="button.enter.surname"/><label><form:input
                 path="surname"/></label><br/></div>
-        <div class="form-row"><fmt:message key="button.enter.address"/><label><form:input
+        <div class="form-row-refr"><fmt:message key="button.enter.address"/><label><form:input
                 path="address"/></label><br/></div>
-        <div class="form-row">
+        <div class="form-row-refr">
             <fmt:message key="button.enter.phone"/><label>
             <form:input path="phone"/>
         </label><br/></div>
-        <div class="form-row"><fmt:message key="button.enter.comment"/><label><form:input
+        <div class="form-row-refr"><fmt:message key="button.enter.comment"/><label><form:input
                 path="comment"/></label><br/>
             <button class="floating-button"><fmt:message key="button.create"/></button>
             <a class="floating-button" href="/client"><fmt:message key="button.back"/></a></div>

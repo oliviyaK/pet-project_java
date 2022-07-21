@@ -21,5 +21,4 @@ public class RequestDTO {
     private int price;
     private Client client;
     private Set<Refrigerator> refrigerator = new HashSet<>();
-
 }

@@ -32,16 +32,16 @@
     background: transparent;
     box-shadow: 0 0 0 1px #090606, 0 0 0 12px #9c8778;
 }
-.form-row {
+.form-row-refr {
     position: relative;
     padding: 10px;
     background: transparent;
 }
-.form-row label {
+.form-row-refr label {
     display: block;
     background: transparent;
 }
-.form-row input {
+.form-row-refr input {
     display: block;
     width: 100%;
     padding: 0;
@@ -49,7 +49,7 @@
     border-width: 0;
     background: #E4E3DF;
 }
-.form-row textarea {
+.form-row-refr textarea {
     width: 100%;
     margin-bottom:40px;
     padding: 0;

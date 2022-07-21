@@ -9,6 +9,9 @@ import org.kustova.refrigerators.entity.Request;
 import org.kustova.refrigerators.repository.ClientRepository;
 import org.kustova.refrigerators.repository.RequestRepository;
 import org.kustova.refrigerators.service.ClientService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,5 +47,13 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public List<Request> findRequest(Integer id) {
         return requestRepository.findRequestFromClient(id);
+    }
+
+    @Override
+    public Page<ClientDTO> findField(String name, String field, String direction, int pageNumber, int pageSize) {
+        Sort sort = Sort.Direction.ASC.name().equalsIgnoreCase(direction) ?
+                Sort.by(field).ascending() : Sort.by(field).descending();
+        Page<Client> clients = clientRepository.findField(name, PageRequest.of(pageNumber - 1, pageSize, sort));
+        return clients.map(clientConverter::toDTO);
     }
 }

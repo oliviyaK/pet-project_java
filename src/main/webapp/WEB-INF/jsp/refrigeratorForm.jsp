@@ -15,10 +15,10 @@
 <form:form action="add" method="post" modelAttribute="refrigerator" autocomplete="off">
 <div class="form-inner">
     <div class="stripes-block"></div>
-    <div class="form-row">
+    <div class="form-row-refr">
         <fmt:message key="button.enter.brand"/><label><form:input path="brand"/></label><br/></div>
-    <div class="form-row"><fmt:message key="button.enter.model"/><label><form:input path="model"/></label><br/></div>
-    <div class="form-row"><fmt:message key="button.enter.comment"/><label><form:input path="comment"/></label><br/>
+    <div class="form-row-refr"><fmt:message key="button.enter.model"/><label><form:input path="model"/></label><br/></div>
+    <div class="form-row-refr"><fmt:message key="button.enter.comment"/><label><form:input path="comment"/></label><br/>
         <button class="floating-button"><fmt:message key="button.create"/></button>
         <a class="floating-button" href="/refrigerator"><fmt:message key="button.back"/></a></div>
     </form:form>
@@ -30,11 +30,11 @@
         <form:hidden path="id"/>
     <div class="form-inner">
         <div class="stripes-block"></div>
-        <div class="form-row"><fmt:message key="button.enter.brand"/><label><form:input
+        <div class="form-row-refr"><fmt:message key="button.enter.brand"/><label><form:input
                 path="brand"/></label><br/></div>
-        <div class="form-row"><fmt:message key="button.enter.model"/><label><form:input
+        <div class="form-row-refr"><fmt:message key="button.enter.model"/><label><form:input
                 path="model"/></label><br/></div>
-        <div class="form-row"><fmt:message key="button.enter.comment"/><label><form:input
+        <div class="form-row-refr"><fmt:message key="button.enter.comment"/><label><form:input
                 path="comment"/></label> <br/>
             <button class="floating-button"><fmt:message key="button.update"/></button>
             <a class="floating-button" href="/refrigerator"><fmt:message key="button.back"/></a></div>

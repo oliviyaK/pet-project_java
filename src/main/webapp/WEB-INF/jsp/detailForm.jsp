@@ -17,11 +17,11 @@
             <form:hidden path="id"/>
         <div class="form-inner">
             <div class="stripes-block"></div>
-            <div class="form-row"><fmt:message key="button.enter.itemName"/> <label><form:input
+            <div class="form-row-refr"><fmt:message key="button.enter.itemName"/> <label><form:input
                     path="name"/></label><br/></div>
-            <div class="form-row">
+            <div class="form-row-refr">
                     <fmt:message key="button.enter.price"/> <label><form:input path="price"/></label><br/>
-                <div class="form-row"><input name="action" type="hidden" value="update">
+                <div class="form-row-refr"><input name="action" type="hidden" value="update">
                     <button class="floating-button"><fmt:message key="button.update"/></button>
                     <a class="floating-button" href="/detail"><fmt:message key="button.back"/></a></div>
                 </form:form>
@@ -31,9 +31,9 @@
                 <form:form action="add" method="post" modelAttribute="detail" autocomplete="off">
                 <div class="form-inner">
                     <div class="stripes-block"></div>
-                    <div class="form-row"><fmt:message key="button.enter.itemName"/><label><form:input
+                    <div class="form-row-refr"><fmt:message key="button.enter.itemName"/><label><form:input
                             path="name"/></label><br/></div>
-                    <div class="form-row"><fmt:message key="button.enter.price"/><label><form:input
+                    <div class="form-row-refr"><fmt:message key="button.enter.price"/><label><form:input
                             path="price"/></label><br/>
                         <button class="floating-button"><fmt:message key="button.create"/></button>
                         <a class="floating-button" href="/detail"><fmt:message key="button.back"/></a></div>

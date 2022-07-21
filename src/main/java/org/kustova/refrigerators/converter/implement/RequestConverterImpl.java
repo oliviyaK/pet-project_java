@@ -23,6 +23,7 @@ public class RequestConverterImpl implements RequestConverter {
                 .comment(request.getComment())
                 .price(request.getPrice())
                 .refrigerator(request.getRefrigerator())
+
                 .build();
     }
 

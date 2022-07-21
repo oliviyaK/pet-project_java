@@ -1,0 +1,32 @@
+
+form {
+    position: relative;
+    width: 150px;
+    margin: 0 auto;
+}
+input, button {
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+input {
+    width: auto;
+    height: 26px;
+    background: #b1f0d3;
+    padding-left: 15px;
+}
+button {
+    height: 26px;
+    width: 26px;
+    top: 8px;
+    right: 8px;
+    background: #F15B42;
+    cursor: pointer;
+}
+button:before {
+    content: "\f105";
+    font-family: FontAwesome, sans-serif;
+    color: #F9F0DA;
+    font-size: 20px;
+    font-weight: bold;
+}
