@@ -3,14 +3,13 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <html>
 <head>
-    <title>Title</title>
+    <title>Login</title>
 </head>
-
 <body>
 <section class="text-center text-lg-start">
     <style>
@@ -39,32 +38,21 @@ backdrop-filter: blur(30px);
                                        autocomplete="new-password" class="form-control" id="formUsername"/>
                                 <label class="form-label" for="formUsername">Username</label>
                             </div>
-
                             <div class="form-outline mb-4">
-
                                 <input type="password" name="password" placeholder="password" required
                                        autocomplete="new-password" class="form-control" id="formPassword"/>
                                 <label class="form-label" for="formPassword">Password</label>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-block mb-4">
-                                Login
+                            <button type="submit" class="btn btn-primary btn-block mb-4">Login
                             </button>
 
                         </form:form>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-6 mb-5 mb-lg-0" >
-                <img src="${pageContext.request.contextPath}/resources/images/operator.jpg" class="w-100 rounded-4 shadow-4"
-                     alt="" />
-            </div>
         </div>
     </div>
-    <!-- Jumbotron -->
 </section>
-
-
 </body>
 </html>

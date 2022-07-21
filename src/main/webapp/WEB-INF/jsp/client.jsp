@@ -56,15 +56,17 @@
             </div>
     </nav>
     <div style="text-align: center;">
-
         <table>
             <div class="d13"><h1><fmt:message key="button.clients"/></h1></div>
+
             <form action="${pageContext.request.contextPath}/client" method="get">
-                <label>
-                    <input type="text" name="clientName"/>
-                </label>
-                <button type="submit"></button>
-            </form>
+                <div>
+                    <label>
+                        <input type="text" name="clientName"/>
+                    </label>
+                    <button type="submit"></button></div>
+            </form><br/>
+
             <tr>
                 <th>
                     <a href="${pageContext.request.contextPath}/client?clientName=${clientName}&page=${currentPage}&sortField=name&sortDir=${reverseSortDir}"

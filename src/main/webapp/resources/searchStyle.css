@@ -1,6 +1,5 @@
-
 form {
-    position: relative;
+    position: absolute;
     width: 150px;
     margin: 0 auto;
 }
@@ -12,7 +11,9 @@ input, button {
 input {
     width: auto;
     height: 26px;
-    background: #b1f0d3;
+    top: 8px;
+    right: 8px;
+    background: #F5D7BF;
     padding-left: 15px;
 }
 button {
