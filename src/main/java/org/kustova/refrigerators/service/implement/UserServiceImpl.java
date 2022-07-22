@@ -6,11 +6,12 @@ import org.kustova.refrigerators.repository.UserRepository;
 import org.kustova.refrigerators.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
-
 
     @Override
     public User findByUsername(String username) {
@@ -23,8 +24,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User saveUser(User user) {
-        return userRepository.save(user);
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void deleteOperator(Integer id) {
+userRepository.deleteById(id);
     }
 
 

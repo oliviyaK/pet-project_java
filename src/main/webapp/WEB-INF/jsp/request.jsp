@@ -13,14 +13,16 @@
     <title><fmt:message key="button.requests"/></title>
 </head>
 <body>
+<div style="text-align: right;">
+    <a class="small_floating-button" href="${pageContext.request.contextPath}/client?locale=en_US"><fmt:message
+            key="lang.en"/></a>
+    <a class="small_floating-button" href="${pageContext.request.contextPath}/client?locale=ru_RU"><fmt:message
+            key="lang.ru"/></a>
+</div>
 <div style="text-align: center;">
+
     <nav class="one">
-        <div style="text-align: right;">
-            <a class="small_floating-button" href="${pageContext.request.contextPath}/client?locale=en_US"><fmt:message
-                    key="lang.en"/></a>
-            <a class="small_floating-button" href="${pageContext.request.contextPath}/client?locale=ru_RU"><fmt:message
-                    key="lang.ru"/></a>
-        </div>
+
         <ul class="topmenu">
             <li><a class="floating-button" href="${pageContext.request.contextPath}/index"><fmt:message
                     key="button.main"/></a></li>

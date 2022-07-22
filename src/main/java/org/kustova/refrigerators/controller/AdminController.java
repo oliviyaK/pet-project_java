@@ -3,11 +3,13 @@ package org.kustova.refrigerators.controller;
 import lombok.RequiredArgsConstructor;
 import org.kustova.refrigerators.entity.User;
 import org.kustova.refrigerators.service.UserService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -18,8 +20,20 @@ public class AdminController {
 
     @GetMapping
     public String listUser(Model model) {
-        User user = userService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
-        model.addAttribute("user", user);
+        List<User> allUsers = userService.findAllUsers();
+        model.addAttribute("users", allUsers);
         return "admin";
+    }
+    @GetMapping("/delete")
+    public String deleteOperator(@RequestParam Integer id) {
+        userService.deleteOperator(id);
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/edit")
+    public String updateOperator(@RequestParam Integer id, Model model) {
+        User operator = userService.findById(id);
+        model.addAttribute("operator", operator);
+        return "operatorForm";
     }
 }

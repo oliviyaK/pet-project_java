@@ -3,11 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page isELIgnored="false" %>
-<link href="../../resources/button.css" rel="stylesheet">
-<link href="../../resources/clientCard.css" rel="stylesheet">
-<link href="../../resources/create.css" rel="stylesheet">
 <html>
-<head><title><fmt:message key="button.create.client"/></title></head>
+<head>
+    <link href="../../resources/button.css" rel="stylesheet">
+    <link href="../../resources/clientCard.css" rel="stylesheet">
+    <link href="../../resources/create.css" rel="stylesheet">
+    <title><fmt:message key="button.create.client"/></title></head>
 <body>
 <c:choose>
 <c:when test="${not empty param.id}">
@@ -29,6 +30,7 @@
         <a class="floating-button" href="/client"><fmt:message key="button.back"/></a></div>
     </form:form>
     </c:when>
+
     <c:when test="${empty param.id}">
     <div class="d13"><h1><fmt:message key="button.create.client"/></h1></div>
     <form:form action="add" method="post" modelAttribute="client" autocomplete="off">

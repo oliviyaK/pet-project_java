@@ -3,11 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page isELIgnored="false" %>
-<link href="../../resources/button.css" rel="stylesheet">
-<link href="../../resources/clientCard.css" rel="stylesheet">
-<link href="../../resources/create.css" rel="stylesheet">
+
 <html>
-<head><title><fmt:message key="button.create.refrigerator"/></title></head>
+<head>
+    <link href="../../resources/button.css" rel="stylesheet">
+    <link href="../../resources/clientCard.css" rel="stylesheet">
+    <link href="../../resources/create.css" rel="stylesheet">
+    <title><fmt:message key="button.create.refrigerator"/></title></head>
 <body>
 <c:choose>
 <c:when test="${empty param.id}">
@@ -17,7 +19,8 @@
     <div class="stripes-block"></div>
     <div class="form-row-refr">
         <fmt:message key="button.enter.brand"/><label><form:input path="brand"/></label><br/></div>
-    <div class="form-row-refr"><fmt:message key="button.enter.model"/><label><form:input path="model"/></label><br/></div>
+    <div class="form-row-refr"><fmt:message key="button.enter.model"/><label><form:input path="model"/></label><br/>
+    </div>
     <div class="form-row-refr"><fmt:message key="button.enter.comment"/><label><form:input path="comment"/></label><br/>
         <button class="floating-button"><fmt:message key="button.create"/></button>
         <a class="floating-button" href="/refrigerator"><fmt:message key="button.back"/></a></div>

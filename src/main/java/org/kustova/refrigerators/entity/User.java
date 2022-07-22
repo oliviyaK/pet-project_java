@@ -31,8 +31,6 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "user_description")
-    private String description;
 
     @Column
     private boolean active;
@@ -47,8 +45,7 @@ public class User implements UserDetails {
         return "User " +
                 "id = " + id +
                 ", name = " + name +
-                ", surname = " + surname +
-                ", description = " + description;
+                ", surname = " + surname;
     }
 
     @Override
