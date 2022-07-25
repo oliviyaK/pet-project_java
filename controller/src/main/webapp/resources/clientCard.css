@@ -1,0 +1,105 @@
+* {
+    box-sizing: content-box;
+    background-image: linear-gradient(to right top, #b1f0d3, #cbeecb, #dfebcb, #edead1, #f3eadc);
+}
+
+.air {
+    max-width: 350px;
+    margin: 50px auto 0;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    background: transparent;
+}
+
+.form-inner {
+    border-bottom: none;
+    background: transparent;
+}
+
+.stripes-block {
+    position: relative;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: repeating-linear-gradient(-45deg, #E4E3DF, #E4E3DF 5px, #909090 6px, #909090 8px);
+    border-bottom: 2px solid #909090;
+}
+
+.stripes-block:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    margin-left: -6px;
+    width: 14px;
+    height: 8px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 0 0 1px #090606, 0 0 0 12px #9c8778;
+}
+
+.form-row-refr {
+    position: relative;
+    padding: 10px;
+    background: transparent;
+}
+
+.form-row-refr label {
+    display: block;
+    background: transparent;
+}
+
+.form-row-refr input {
+    display: block;
+    width: 100%;
+    padding: 0;
+    line-height: 30px;
+    border-width: 0;
+    background: #E4E3DF;
+}
+
+.form-row-refr textarea {
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 0;
+    outline: 0;
+    line-height: 40px;
+    background: transparent;
+    letter-spacing: 0.2em;
+    border-width: 0;
+    resize: none;
+}
+
+.form-row-icon {
+    position: relative;
+    border-bottom: 2px solid #909090;
+    background: transparent;
+}
+
+.form-row-icon .fa {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #909090;
+    color: #E4E3DF;
+    border-bottom: 2px solid;
+}
+
+.form-row-icon input {
+    display: block;
+    width: 100%;
+    padding: 0 10px 0 50px;
+    line-height: 40px;
+    box-sizing: border-box;
+    border-width: 0;
+    background: #E4E3DF;
+}
+
+.form-row-icon .fa-paper-plane-o {
+    border-bottom-color: #909090;
+    cursor: pointer;
+    background: transparent;
+}

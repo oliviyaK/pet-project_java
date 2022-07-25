@@ -1,0 +1,21 @@
+.d12 h2 {
+    display: table;
+    width: auto;
+    margin: 0 auto;
+    padding: 25px;
+    letter-spacing: 2px;
+    border: #29838C;
+    color: white;
+    box-shadow: 0 0 0 4px #cbdcea;
+}
+
+.d13 h1 {
+    color: #656665;
+    font-family: 'Rouge Script', cursive;
+    font-size: 50px;
+    font-weight: normal;
+    line-height: 40px;
+    margin: 0 0 30px;
+    text-align: center;
+}
+
